@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Network Engineer focused on multi-site infrastructure and cloud fundamentals; also contributing to project-based AI training work in Arabic LLM evaluation.">
+    <meta name="keywords" content="Network Engineer, CCNA Trained, OSPF, HSRP, Cloud Computing, Alibaba Cloud, Network Security, Amman Jordan">
+    <meta name="author" content="Rabab Mashaqbeh">
+    <title>Network & Cloud Engineer Portfolio | Multi-Site Infrastructure</title>
+    
+    <!-- Google Analytics 4 (استبدل G-XXXXXXXXXX بـ ID حقك) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+    
+    <style>
+        :root {
+            --navy-900: #020c1b;
+            --navy-800: #0a192f;
+            --navy-700: #112240;
+            --navy-600: #233554;
+            --navy-500: #304b6e;
+            --cyan: #64ffda;
+            --cyan-dim: rgba(100, 255, 218, 0.1);
+            --cyan-glow: rgba(100, 255, 218, 0.4);
+            --slate-100: #e6f1ff;
+            --slate-200: #ccd6f6;
+            --slate-300: #a8b2d1;
+            --slate-400: #8892b0;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 5rem;
+            --transition-fast: 0.2s ease;
+            --transition-base: 0.3s ease;
+            --z-backdrop: -1;
+            --z-nav: 100;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--navy-900);
+            color: var(--slate-300);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: var(--z-backdrop);
+            pointer-events: none;
+        }
+
+        .gradient-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--cyan);
+            top: -200px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: #bd34fe;
+            bottom: 10%;
+            right: -50px;
+            animation-delay: -5s;
+        }
+
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            background: #00d4aa;
+            top: 40%;
+            left: 60%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: var(--z-nav);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            background: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--navy-600);
+            transition: var(--transition-base);
+        }
+
+        .nav-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--cyan);
+            text-decoration: none;
+        }
+
+        .nav-logo::before {
+            content: '<';
+            margin-right: 0.25rem;
+            color: var(--slate-400);
+        }
+
+        .nav-logo::after {
+            content: '/>';
+            margin-left: 0.25rem;
+            color: var(--slate-400);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-md);
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--slate-300);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.5rem;
+            position: relative;
+            transition: var(--transition-fast);
+        }
+
+        .nav-link::before {
+            content: '0' counter(link) '.';
+            counter-increment: link;
+            color: var(--cyan);
+            margin-right: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+        }
+
+        .nav-link:hover {
+            color: var(--cyan);
+        }
+
+        .nav-links {
+            counter-reset: link;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--cyan);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: var(--spacing-xl) var(--spacing-lg);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero-greeting {
+            color: var(--cyan);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            margin-bottom: var(--spacing-sm);
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .hero-name {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 700;
+            color: var(--slate-100);
+            line-height: 1.1;
+            margin-bottom: var(--spacing-xs);
+            animation: fadeInUp 0.6s ease 0.1s both;
+        }
+
+        .hero-title {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--slate-400);
+            line-height: 1.2;
+            margin-bottom: var(--spacing-md);
+            animation: fadeInUp 0.6s ease 0.2s both;
+        }
+
+        .hero-summary {
+            max-width: 600px;
+            font-size: 1.125rem;
+            line-height: 1.7;
+            margin-bottom: var(--spacing-lg);
+            animation: fadeInUp 0.6s ease 0.3s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            animation: fadeInUp 0.6s ease 0.4s both;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-lg);
+            animation: fadeInUp 0.6s ease 0.5s both;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--navy-700);
+            border: 1px solid var(--navy-600);
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--slate-300);
+            transition: var(--transition-fast);
+        }
+
+        .badge:hover {
+            border-color: var(--cyan);
+            color: var(--cyan);
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.875rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition-base);
+        }
+
+        .btn-primary {
+            background: transparent;
+            color: var(--cyan);
+            border: 1px solid var(--cyan);
+        }
+
+        .btn-primary:hover {
+            background: var(--cyan-dim);
+            box-shadow: 0 0 20px var(--cyan-glow);
+        }
+
+        .btn-secondary {
+            background: var(--navy-700);
+            color: var(--slate-100);
+            border: 1px solid var(--navy-600);
+        }
+
+        .btn-secondary:hover {
+            background: var(--navy-600);
+            border-color: var(--cyan);
+        }
+
+        .section {
+            padding: var(--spacing-xl) var(--spacing-lg);
+            max-width: 1000px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-number {
+            color: var(--cyan);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.25rem;
+            font-weight: 400;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            color: var(--slate-100);
+        }
+
+        .section-line {
+            flex: 1;
+            height: 1px;
+            background: var(--navy-600);
+            margin-left: var(--spacing-md);
+        }
+
+        .about-content p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .skills-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: var(--spacing-md);
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background: var(--navy-700);
+            border: 1px solid var(--navy-600);
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--slate-300);
+            transition: var(--transition-fast);
+        }
+
+        .skill-tag:hover {
+            color: var(--cyan);
+            border-color: var(--cyan);
+            transform: translateY(-2px);
+        }
+
+        .experience-list {
+            display: grid;
+            gap: var(--spacing-lg);
+        }
+
+        .experience-item {
+            position: relative;
+            padding-left: var(--spacing-lg);
+            border-left: 2px solid var(--navy-600);
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--navy-900);
+            border: 2px solid var(--cyan);
+        }
+
+        .experience-header {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .experience-role {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--slate-100);
+        }
+
+        .experience-company {
+            color: var(--cyan);
+        }
+
+        .experience-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8125rem;
+            color: var(--slate-400);
+            margin-top: 0.25rem;
+        }
+
+        .experience-details {
+            list-style: none;
+        }
+
+        .experience-details li {
+            padding-left: 1.25rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+            font-size: 0.9375rem;
+        }
+
+        .experience-details li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+        }
+
+        .projects-grid {
+            display: grid;
+            gap: var(--spacing-lg);
+        }
+
+        .project-card {
+            background: var(--navy-700);
+            border: 1px solid var(--navy-600);
+            border-radius: 8px;
+            padding: var(--spacing-lg);
+            position: relative;
+            transition: var(--transition-base);
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--cyan);
+            box-shadow: 0 10px 30px -15px var(--cyan-dim);
+        }
+
+        .project-card.featured::before {
+            content: 'FEATURED';
+            position: absolute;
+            top: -1px;
+            right: -1px;
+            padding: 0.25rem 0.75rem;
+            background: var(--cyan);
+            color: var(--navy-900);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.625rem;
+            font-weight: 700;
+            border-radius: 0 8px 0 8px;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .project-folder {
+            color: var(--cyan);
+            font-size: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--slate-100);
+            margin-bottom: 0.25rem;
+        }
+
+        .project-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--slate-400);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .project-description {
+            margin-bottom: var(--spacing-md);
+            font-size: 0.9375rem;
+        }
+
+        .project-highlights {
+            list-style: none;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .project-highlights li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+            font-size: 0.9375rem;
+        }
+
+        .project-highlights li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--cyan);
+        }
+
+        .highlight {
+            color: var(--cyan);
+            font-weight: 600;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .tech-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--slate-400);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .skill-category {
+            background: var(--navy-700);
+            border: 1px solid var(--navy-600);
+            border-radius: 8px;
+            padding: var(--spacing-md);
+        }
+
+        .skill-category-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--slate-100);
+            margin-bottom: var(--spacing-md);
+            padding-bottom: var(--spacing-sm);
+            border-bottom: 1px solid var(--navy-600);
+        }
+
+        .cert-list {
+            list-style: none;
+        }
+
+        .cert-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--navy-600);
+        }
+
+        .cert-list li:last-child {
+            border-bottom: none;
+        }
+
+        .cert-name {
+            font-weight: 500;
+            color: var(--slate-100);
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cert-badge {
+            font-size: 1.25rem;
+        }
+
+        .cert-issuer {
+            font-size: 0.8125rem;
+            color: var(--slate-400);
+        }
+
+        .cert-type {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.625rem;
+            padding: 0.125rem 0.5rem;
+            background: var(--cyan-dim);
+            color: var(--cyan);
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            font-weight: 600;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            font-size: 0.9375rem;
+            border-bottom: 1px solid var(--navy-600);
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-level {
+            width: 60px;
+            height: 4px;
+            background: var(--navy-600);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .skill-level-fill {
+            height: 100%;
+            background: var(--cyan);
+            border-radius: 2px;
+        }
+
+        .contact-box {
+            text-align: center;
+            padding: var(--spacing-xl);
+            background: var(--navy-700);
+            border: 1px solid var(--navy-600);
+            border-radius: 8px;
+        }
+
+        .contact-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            color: var(--slate-100);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .contact-text {
+            max-width: 500px;
+            margin: 0 auto var(--spacing-lg);
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+
+        .contact-email {
+            display: inline-block;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.25rem;
+            color: var(--cyan);
+            text-decoration: none;
+            margin-bottom: var(--spacing-lg);
+            transition: var(--transition-fast);
+        }
+
+        .contact-email:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+        }
+
+        .social-link {
+            color: var(--slate-400);
+            padding: 0.75rem;
+            transition: var(--transition-fast);
+        }
+
+        .social-link:hover {
+            color: var(--cyan);
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            text-align: center;
+            padding: var(--spacing-lg);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--slate-400);
+        }
+
+        .footer a {
+            color: var(--cyan);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --spacing-lg: 2rem;
+                --spacing-xl: 3rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding-top: 6rem;
+            }
+
+            .section-header {
+                flex-wrap: wrap;
+            }
+
+            .section-line {
+                width: 100%;
+                margin-left: 0;
+                margin-top: var(--spacing-sm);
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="backdrop">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Rabab Mashaqbeh</a>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <p class="hero-greeting">Hi, my name is</p>
+        <h1 class="hero-name">Rabab Mashaqbeh.</h1>
+        <h2 class="hero-title">Network & Cloud Engineer (Alibaba Cloud Fundamentals)</h2>
+        <p class="hero-summary">
+            Network Engineer focused on multi-site infrastructure and cloud fundamentals; also contributing to project-based AI training work in Arabic LLM evaluation.
+        </p>
+        <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="https://www.linkedin.com/in/rabab-al-mashaqbeh/" target="_blank" class="btn btn-secondary">LinkedIn Profile</a>
+        </div>
+        <div class="hero-badges">
+            <span class="badge">📍 Amman, Jordan</span>
+            <span class="badge">☁️ Alibaba Cloud ACA</span>
+            <span class="badge">🎓 CCNA Trained</span>
+            <span class="badge">📊 Data Analytics</span>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+        <div class="section-header">
+            <span class="section-number">01.</span>
+            <h2 class="section-title">About Me</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="about-content">
+            <p>
+                Starting with a strong foundation in Computer & Network Systems Engineering, I quickly expanded my expertise to include Cloud Computing and Artificial Intelligence. During my intensive training program with Alibaba Cloud, I gained foundational knowledge in designing secure cloud architectures and obtained my ACA Certification.
+            </p>
+            <p>
+                Currently, I am leveraging my analytical background to contribute to the Generative AI landscape. As a freelance AI Trainer, I focus on enhancing Arabic language models through rigorous content evaluation, logical reasoning, and linguistic accuracy.
+            </p>
+            <p>
+                I am passionate about technology, problem-solving, and continuous learning. I am now seeking an entry-level opportunity where I can apply my technical skills and dedication to drive organizational success.
+            </p>
+            <div class="skills-cloud">
+                <span class="skill-tag">OSPF/BGP</span>
+                <span class="skill-tag">VLANs</span>
+                <span class="skill-tag">HSRP</span>
+                <span class="skill-tag">GRE/VPN</span>
+                <span class="skill-tag">Cloud (Alibaba)</span>
+                <span class="skill-tag">Network Security</span>
+                <span class="skill-tag">Python</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section" id="experience">
+        <div class="section-header">
+            <span class="section-number">02.</span>
+            <h2 class="section-title">Where I've Worked</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="experience-list">
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="experience-role">Cloud Computing Intern <span class="experience-company">@ Alibaba Cloud Program</span></h3>
+                    <p class="experience-meta">Dec 2024 – Jun 2025 | Amman, Jordan</p>
+                </div>
+                <ul class="experience-details">
+                    <li>Intensive training in <span class="highlight">ECS, VPC, SLB</span> with hands-on labs and architecture design</li>
+                    <li>Applied cloud concepts to support infrastructure planning for data-driven projects</li>
+                    <li>Earned <span class="highlight">Alibaba Cloud Certified Associate (ACA)</span> certification</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3 class="experience-role">Outlier — Freelance AI Trainer (Part-time, project-based) <span class="experience-company">| Remote</span></h3>
+                    <p class="experience-meta">Jun 2025 – Present</p>
+                </div>
+                <ul class="experience-details">
+                    <li><span class="highlight">RLHF tasks:</span> Evaluating Arabic LLM outputs for accuracy and logical reasoning</li>
+                    <li>Content quality assessment and model behavior refinement</li>
+                    <li>Collaborating on improving multilingual AI systems</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="section" id="projects">
+        <div class="section-header">
+            <span class="section-number">03.</span>
+            <h2 class="section-title">Some Things I've Built</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="projects-grid">
+            <article class="project-card featured">
+                <div class="project-header">
+                    <span class="project-folder">📁</span>
+                </div>
+                <h3 class="project-title">SPAN Company — Enterprise Multi-Site Network</h3>
+                <p class="project-meta">Solo Project | Nov 2023 – Dec 2023 | Packet Tracer + 20-Page Report</p>
+                <p class="project-description">
+                    Designed and implemented a <span class="highlight">redundant, scalable network</span> connecting Amman HQ with Dubai and Riyadh branches. Features ISP redundancy, enterprise security, and comprehensive documentation.
+                </p>
+                <ul class="project-highlights">
+                    <li><span class="highlight">Routing:</span> OSPF multi-area with GRE tunneling for secure inter-site communication</li>
+                    <li><span class="highlight">High Availability:</span> HSRP gateway redundancy + LACP EtherChannel (5 groups)</li>
+                    <li><span class="highlight">Security:</span> VLAN segmentation, Port Security, DHCP Snooping, ACL-based filtering</li>
+                    <li><span class="highlight">Services:</span> NAT, NTP/Syslog server, WLC with lightweight APs</li>
+                </ul>
+                <div class="project-tech">
+                    <span class="tech-tag">OSPF</span>
+                    <span class="tech-tag">HSRP</span>
+                    <span class="tech-tag">GRE</span>
+                    <span class="tech-tag">VLANs</span>
+                    <span class="tech-tag">EtherChannel</span>
+                    <span class="tech-tag">Packet Tracer</span>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-header">
+                    <span class="project-folder">📁</span>
+                </div>
+                <h3 class="project-title">Secure Campus Area Network</h3>
+                <p class="project-meta">Team Project | Cisco Packet Tracer</p>
+                <p class="project-description">
+                    Led network configuration and architecture research for a segmented campus network with hierarchical design principles.
+                </p>
+                <ul class="project-highlights">
+                    <li>Configured VLANs, inter-VLAN routing, and validated end-to-end connectivity</li>
+                    <li>Implemented <span class="highlight">DHCP Snooping</span> and Layer 2 security best practices</li>
+                    <li>Delivered technical presentation to stakeholders</li>
+                </ul>
+                <div class="project-tech">
+                    <span class="tech-tag">VLANs</span>
+                    <span class="tech-tag">Inter-VLAN Routing</span>
+                    <span class="tech-tag">DHCP Snooping</span>
+                    <span class="tech-tag">L2 Security</span>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="project-header">
+                    <span class="project-folder">📁</span>
+                </div>
+                <h3 class="project-title">JoDrop AI — Climate Analytics</h3>
+                <p class="project-meta">Team Prototype | Google Colab | TensorFlow</p>
+                <p class="project-description">
+                    Rainfall forecasting prototype using <span class="highlight">LSTM neural networks</span> and geospatial analysis for water storage site selection in Jordan.
+                </p>
+                <ul class="project-highlights">
+                    <li>Built forecasting pipeline with TensorFlow and time-series data</li>
+                    <li>Created interactive visualizations with GeoPandas and Folium</li>
+                    <li>Explored AI/Cloud integration for environmental applications</li>
+                </ul>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">TensorFlow</span>
+                    <span class="tech-tag">LSTM</span>
+                    <span class="tech-tag">GeoPandas</span>
+                    <span class="tech-tag">Folium</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section" id="skills">
+        <div class="section-header">
+            <span class="section-number">04.</span>
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3 class="skill-category-title"><span>🏆</span> Certifications & Training</h3>
+                <ul class="cert-list">
+                    <li>
+                        <div class="cert-name">
+                            <span class="cert-badge">🏆</span>
+                            Alibaba Cloud Certified Associate (ACA)
+                            <span class="cert-type">CERT</span>
+                        </div>
+                        <div class="cert-issuer">Cloud Engineer — 2025</div>
+                    </li>
+                    <li>
+                        <div class="cert-name">
+                            <span class="cert-badge">🏆</span>
+                            Tech for Jobs – Advanced Data Analytics
+                            <span class="cert-type">CERT</span>
+                        </div>
+                        <div class="cert-issuer">USAID Program — Oct 2024 – Mar 2025</div>
+                    </li>
+                    <li>
+                        <div class="cert-name">
+                            <span class="cert-badge">🎓</span>
+                            CCNA Preparation (Full Training)
+                            <span class="cert-type">TRAINING</span>
+                        </div>
+                        <div class="cert-issuer">ICT Upskilling Program — Aug 2023 – Dec 2023</div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h3 class="skill-category-title"><span>🌐</span> Networking</h3>
+                <ul class="skill-list">
+                    <li>
+                        <span>Routing (OSPF, EIGRP, BGP)</span>
+                        <div class="skill-level"><div class="skill-level-fill" style="width: 90%"></div></div>
+                    </li>
+                    <li>
+                        <span>Switching (VLANs, STP, EtherChannel)</span>
+                        <div class="skill-level"><div class="skill-level-fill" style="width: 85%"></div></div>
+                    </li>
+                    <li>
+                        <span>WAN (GRE, VPN, ISP Redundancy)</span>
+                        <div class="skill-level"><div class="skill-level-fill" style="width: 80%"></div></div>
+                    </li>
+                    <li>
+                        <span>Network Security (ACLs, NAT, Port Security)</span>
+                        <div class="skill-level"><div class="skill-level-fill" style="width: 75%"></div></div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="skill-category">
+                <h3 class="skill-category-title"><span>☁️</span> Cloud & Tools</h3>
+                <ul class="skill-list">
+                    <li>
+                        <span>Alibaba Cloud (ECS, VPC, SLB)</span>
+                        <div class="skill-level"><div class="skill-level-fill" style="width: 75%"></div></div>
+                    </li>
+                    <li>
+                        <span>Cisco Packet Tracer</span>
+                        <div class="skill-level"><div class="skill-level-fill" style="width: 95%"></div></div>
+                    </li>
+                    <li>
+                        <span>Python / Git / Colab</span>
+                        <div class="skill-level"><div class="skill-level-fill" style="width: 70%"></div></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section" id="contact">
+        <div class="section-header">
+            <span class="section-number">05.</span>
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="section-line"></div>
+        </div>
+        <div class="contact-box">
+            <h3 class="contact-title">What's Next?</h3>
+            <p class="contact-text">
+                I'm currently looking for <strong>entry-level Network Engineer / NOC</strong> opportunities. Whether you have a position open or just want to say hi, I'll try my best to get back to you!
+            </p>
+            <a href="mailto:rabab.almashaqbeh@gmail.com" class="contact-email">rabab.almashaqbeh@gmail.com</a>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/rabab-al-mashaqbeh/" target="_blank" class="social-link" aria-label="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/RababMas" target="_blank" class="social-link" aria-label="GitHub">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Designed & Built by Rabab Mashaqbeh</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="https://github.com/RababMas/portfolio" target="_blank">View Source Code</a>
+        </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach((section) => {
+            observer.observe(section);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        const nav = document.querySelector('.nav');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                nav.style.boxShadow = '0 10px 30px -10px rgba(2, 12, 27, 0.7)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
